@@ -1,3 +1,4 @@
+import { Car } from "@prisma/client";
 import { prisma } from "../database/database";
 import { CarCreate, CarReturn, CarUpdate } from "../interfaces";
 import { carReturnSchema } from "../schemas";
@@ -29,6 +30,6 @@ export class CarService {
   };
 
   public delete = async (carId: number): Promise<void> => {
-    const deleteCar = await prisma.car.delete({ where: { id: carId } });
+    const deleteCar = await prisma.car.delete({ where: { id: Number(carId) } });
   };
 }
