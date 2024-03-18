@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { AppError } from "../errors";
 import { ZodError } from "zod";
 
-export class HandleErrorMiddleware {
+class HandleErrorMiddleware {
   static execute = (
     error: Error,
     req: Request,
@@ -21,3 +21,5 @@ export class HandleErrorMiddleware {
     return res.status(500).json({ message: "Internal Server Error." });
   };
 }
+
+export const handleErrors = HandleErrorMiddleware.execute;

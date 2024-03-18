@@ -1,4 +1,4 @@
-import { HandleErrorMiddleware } from "./handleError.middleware";
-import { EnsureMiddleware } from "./ensure.middleware";
+import { handleErrors } from "./handleError.middleware";
+import { ensure } from "./ensure.middleware";
 
-export { HandleErrorMiddleware, EnsureMiddleware };
+export { handleErrors, ensure };

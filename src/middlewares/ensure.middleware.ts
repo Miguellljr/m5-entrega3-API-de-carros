@@ -3,7 +3,7 @@ import { prisma } from "../database/database";
 import { AppError } from "../errors";
 import { AnyZodObject } from "zod";
 
-export class EnsureMiddleware {
+class EnsureMiddleware {
   public ValidBody =
     (schema: AnyZodObject) =>
     (req: Request, _: Response, next: NextFunction): void => {
@@ -28,3 +28,5 @@ export class EnsureMiddleware {
     return next();
   };
 }
+
+export const ensure = new EnsureMiddleware();
