@@ -4,13 +4,22 @@ import { carCreateSchema, carUpdateSchema } from "../schemas";
 import { ensure } from "../middlewares/ensure.middleware";
 
 export const carRouter = Router();
-const controller = new CarController();
+const controller = new CarController()
 
-carRouter.post("", ensure.ValidBody(carCreateSchema), controller.create);
+
+carRouter.post(
+  "",
+  ensure.ValidBody(carCreateSchema),
+  controller.create
+);
 
 carRouter.get("", controller.read);
 
-carRouter.get("/:id", ensure.paramsCarIdExists, controller.retrieve);
+carRouter.get(
+  "/:id",
+  ensure.paramsCarIdExists,
+  controller.retrieve
+);
 
 carRouter.patch(
   "/:id",
@@ -19,4 +28,8 @@ carRouter.patch(
   controller.update
 );
 
-carRouter.delete("/:id", ensure.paramsCarIdExists, controller.delete);
+carRouter.delete(
+  "/:id",
+  ensure.paramsCarIdExists,
+  controller.delete
+);
